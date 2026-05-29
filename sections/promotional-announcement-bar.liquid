@@ -1,7 +1,7 @@
 {% if section.settings.announcement-text != blank %}
-  <div class="w-full relative " id="announcement-bar">
-    <div class=" bg-black h-[50px] flex items-center justify-center">
-      <p class="text-white">{{ section.settings.announcement-text }}</p>
+  <div class="w-full relative " id="announcement_bar">
+    <div class="h-[50px] flex items-center justify-center" style="background-color: {{ section.settings.background_color }};">
+      <p style="color: {{ section.settings.text_color }};">{{ section.settings.announcement_text }}</p>
     </div>
 
     <button id="announcement-close-btn" class="absolute right-[20px] cursor-pointer top-[50%] -translate-[50%] text-white">X</button>
@@ -35,16 +35,26 @@
 
 </script>
 
-
+{% comment %} text edit {% endcomment %}
 {% schema %}
   {
-    "name": "Announcement Text",
+    "name": "Bar",
     "settings": [
       {
         "type": "text",
-        "id": "announcement-text",
+        "id": "announcement_text",
         "label": "Enter Announcement Text",
         "default": "Get 20% off your purchase! Enter code \"20SAVINGS\" at checkout."
+      }, {
+        "type": "color",
+        "id": "background_color",
+        "label": "Enter Bg Color",
+        "default": "#000000"
+      }, {
+        "type": "text",
+        "id": "text_color",
+        "label": "Enter Text Color",
+        "default": "#ffffff"
       }
     ]
   }
