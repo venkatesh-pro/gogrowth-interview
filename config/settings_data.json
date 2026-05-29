@@ -8,5 +8,15 @@
  * ------------------------------------------------------------
  */
 {
-  "current": {}
+  "current": {
+    "sections": {
+      "promotional-announcement-bar": {
+        "type": "promotional-announcement-bar",
+        "settings": {
+          "announcement-text": "Testing"
+        }
+      }
+    },
+    "content_for_index": []
+  }
 }
