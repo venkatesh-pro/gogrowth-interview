@@ -13,7 +13,9 @@
       "promotional-announcement-bar": {
         "type": "promotional-announcement-bar",
         "settings": {
-          "announcement-text": "Get 20% off your purchase! Enter code \"20SAVINGS\" at checkout."
+          "announcement_text": "Get 20% off your purchase! Enter code \"20SAVINGS\" at checkout.",
+          "background_color": "#ff0000",
+          "text_color": "#11e670"
         }
       }
     },
