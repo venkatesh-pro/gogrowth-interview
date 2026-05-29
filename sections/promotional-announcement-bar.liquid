@@ -1,4 +1,4 @@
-{% if section.settings.announcement-text != blank %}
+{% if section.settings.announcement_text != blank %}
   <div class="w-full relative " id="announcement_bar">
     <div class="h-[50px] flex items-center justify-center" style="background-color: {{ section.settings.background_color }};">
       <p style="color: {{ section.settings.text_color }};">{{ section.settings.announcement_text }}</p>
@@ -51,7 +51,7 @@
         "label": "Enter Bg Color",
         "default": "#000000"
       }, {
-        "type": "text",
+        "type": "color",
         "id": "text_color",
         "label": "Enter Text Color",
         "default": "#ffffff"
