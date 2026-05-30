@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Shipping Progress Bar</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+
+  <body>
+    <div class="p-4">
+      <div class="flex flex-wrap gap-3">
+        <button class="cart-btn px-[20px] py-[10px] bg-[#eee] cursor-pointer rounded" value="20">
+          Cart ₹20
+        </button>
+
+        <button class="cart-btn px-[20px] py-[10px] bg-[#eee] cursor-pointer rounded" value="60">
+          Cart ₹60
+        </button>
+
+        <button class="cart-btn px-[20px] py-[10px] bg-[#eee] cursor-pointer rounded" value="120">
+          Cart ₹120
+        </button>
+      </div>
+
+      <div class="w-full h-[90dvh] fixed right-[20px] top-[0px] max-w-[360px] mt-[30px] p-[20px] bg-white shadow-lg rounded-[16px] border">
+        <p class="text-[18px] font-semibold mb-[10px]">Your Cart</p>
+
+        <p id="shipping-message" class="text-[14px] mb-[12px]">
+          Spend ₹100 more to unlock free shipping.
+        </p>
+
+        <div class="w-full bg-gray-200 rounded-full overflow-hidden">
+          <div
+            id="progress-child"
+            class="bg-black text-xs font-medium text-white text-center h-4 flex items-center justify-center rounded-full transition-all duration-300"
+            style="width: 0%"
+          >
+            0%
+          </div>
+        </div>
+
+        <p class="mt-[12px] text-[14px]">
+          Cart total: <span id="cart-total" class="font-semibold">₹0</span>
+        </p>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
