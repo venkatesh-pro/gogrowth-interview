@@ -7,7 +7,9 @@
 
 <div class="product-images">
   {% for image in product.images %}
-    {% render 'image', class: 'product-image', image: image %}
+    {% render 'image'
+      , class: 'product-image'
+      , image: image %}
   {% endfor %}
 </div>
 
@@ -15,10 +17,31 @@
   <h1>{{ product.title }}</h1>
   <p>{{ product.price | money }}</p>
   <p>{{ product.description }}</p>
+
+  {% comment %} accordion section {% endcomment %}
+
+  {% assign care_instructions = product.metafields.custom.care_instructions.value %}
+
+  {% if care_instructions != blank %}
+    <div class="p-10 bg-[#eee]">
+      <details>
+        <summary class="flex justify-between">
+          <span>Care Instructions</span>
+          <span>+</span>
+        </summary>
+
+        <div class="pt-2">
+          {{ care_instructions | newline_to_br }}
+        </div>
+      </details>
+    </div>
+  {% endif %}
+
 </div>
 
 <div class="product-form">
-  {% form 'product', product %}
+  {% form 'product'
+    , product %}
     {% assign current_variant = product.selected_or_first_available_variant %}
 
     <select name="id">
@@ -26,15 +49,18 @@
         <option
           value="{{ variant.id }}"
           {% if variant == current_variant %}
-            selected="selected"
-          {% endif %}
-        >
+          selected="selected"
+          {% endif %}>
           {{ variant.title }} - {{ variant.price | money }}
         </option>
       {% endfor %}
     </select>
 
-    <input type="text" name="quantity" min="1" value="1">
+    <input
+      type="text"
+      name="quantity"
+      min="1"
+      value="1">
 
     <input type="submit" value="Add to cart">
     {{ form | payment_button }}
@@ -42,11 +68,11 @@
 </div>
 
 {% schema %}
-{
-  "name": "t:general.product",
-  "settings": [],
-  "disabled_on": {
-    "groups": ["header", "footer"]
+  {
+    "name": "t:general.product",
+    "settings": [],
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    }
   }
-}
 {% endschema %}
